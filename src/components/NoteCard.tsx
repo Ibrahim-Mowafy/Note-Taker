@@ -25,7 +25,12 @@ export const NoteCard = ({
           onClick={() => setIsExpanded(!isExpanded)}
         >
           <div className="collapse-title text-xl font-bold">{note.title}</div>
-          <div className="collapse-content">
+          <div
+            className="collapse-content"
+            onClick={(event) => {
+              event.stopPropagation();
+            }}
+          >
             <article className="prose lg:prose-xl">
               <ReactMarkdown>{note.content}</ReactMarkdown>
             </article>
